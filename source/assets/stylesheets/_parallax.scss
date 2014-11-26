@@ -1,3 +1,14 @@
+@include keyframes(pulse) {
+  0% {
+    opacity: .3;
+  }
+  50% {
+    opacity: .9;
+  }
+  100% {
+    opacity: .3;
+  }
+}
 .layer1 {
   height: 100%;
 }
@@ -81,8 +92,49 @@
   }
 }
 
-section#content {
-  @include rem(padding, 50px);
+.note {
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  top: 45%;
+  width: 100%;
+
+  .pulse {
+    @include animation(pulse 4s infinite);
+    @include rem(font-size, 20px);
+    font-style: italic;
+    letter-spacing: 5px;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: 45%;
+    width: 100%;
+
+    &:after,
+    &:before {
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 34px solid #000;
+      bottom: -70px;
+      content: '';
+      left: 50%;
+      margin-left: -20px;
+      position: absolute;
+    }
+
+    &:before {
+      border-left: 22px solid transparent;
+      border-right: 22px solid transparent;
+      border-top: 37px solid;
+      border-top-color: inherit; /* Can't be included in the shorthand to work */
+      bottom: -72px;
+      margin-left: -22px;
+    }
+  }
+}
+
+.content {
+  @include rem(padding, 50px 20px);
   background-color: $contentBackgroundColor;
   bottom: 0;
   color: $contentTextColor;
@@ -92,6 +144,10 @@ section#content {
   right: 0;
   top: 0;
   z-index: 1000;
+
+  @include breakpoint($breakpoint2) {
+    @include rem(padding, 50px);
+  }
 
   .wrap {
     @include rem(max-width, 600px);
