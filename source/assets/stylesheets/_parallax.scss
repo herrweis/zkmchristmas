@@ -171,6 +171,7 @@
   &.black {
     background-color: $backgroundColor;
     color: $bodyTextColor;
+    overflow: hidden;
   }
 
   .wrap {
