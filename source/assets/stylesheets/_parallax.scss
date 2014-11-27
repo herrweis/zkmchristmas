@@ -26,45 +26,64 @@
   position: absolute;
   width: 100%;
 
-  &.section1 {
-    @for $i from 1 through 4 {
-      &.big#{$i} {
-        background-image: url('../images/01snow_big#{$i}.svg');
-      }
-    }
 
-    @for $i from 1 through 4 {
-      &.mid#{$i} {
-        background-image: url('../images/01snow_mid#{$i}.svg');
-      }
-    }
-
-    @for $i from 1 through 4 {
-      &.small#{$i} {
-        background-image: url('../images/01snow_small#{$i}.svg');
-      }
+  @for $i from 1 through 4 {
+    &.big#{$i} {
+      background-image: url('../images/03_snow_big#{$i}.svg');
     }
   }
 
-  &.section2 {
-    @for $i from 1 through 4 {
-      &.big#{$i} {
-        background-image: url('../images/02snow_big#{$i}.svg');
-      }
-    }
-
-    @for $i from 1 through 4 {
-      &.mid#{$i} {
-        background-image: url('../images/02snow_mid#{$i}.svg');
-      }
-    }
-
-    @for $i from 1 through 4 {
-      &.small#{$i} {
-        background-image: url('../images/02snow_small#{$i}.svg');
-      }
+  @for $i from 1 through 4 {
+    &.mid#{$i} {
+      background-image: url('../images/02_snow_mid#{$i}.svg');
     }
   }
+
+  @for $i from 1 through 4 {
+    &.small#{$i} {
+      background-image: url('../images/01_snow_small#{$i}.svg');
+    }
+  }
+
+  // &.section1 {
+  //   @for $i from 1 through 4 {
+  //     &.big#{$i} {
+  //       background-image: url('../images/01snow_big#{$i}.svg');
+  //     }
+  //   }
+
+  //   @for $i from 1 through 4 {
+  //     &.mid#{$i} {
+  //       background-image: url('../images/01snow_mid#{$i}.svg');
+  //     }
+  //   }
+
+  //   @for $i from 1 through 4 {
+  //     &.small#{$i} {
+  //       background-image: url('../images/01snow_small#{$i}.svg');
+  //     }
+  //   }
+  // }
+
+  // &.section2 {
+  //   @for $i from 1 through 4 {
+  //     &.big#{$i} {
+  //       background-image: url('../images/02snow_big#{$i}.svg');
+  //     }
+  //   }
+
+  //   @for $i from 1 through 4 {
+  //     &.mid#{$i} {
+  //       background-image: url('../images/02snow_mid#{$i}.svg');
+  //     }
+  //   }
+
+  //   @for $i from 1 through 4 {
+  //     &.small#{$i} {
+  //       background-image: url('../images/02snow_small#{$i}.svg');
+  //     }
+  //   }
+  // }
 }
 
 .typo {
@@ -152,6 +171,14 @@
   .wrap {
     @include rem(max-width, 600px);
     margin: 0 auto;
+  }
+
+  .wrap-center {
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 35%;
   }
 }
 
