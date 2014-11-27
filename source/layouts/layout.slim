@@ -1,5 +1,5 @@
 doctype html
-html.no-js
+html
   head
     meta charset="utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
@@ -9,9 +9,9 @@ html.no-js
     == stylesheet_link_tag "all"
 
     /[if lt IE 9]
-      script src="/assets/javascripts/html5shiv.js"
+      script src="assets/javascripts/html5shiv.js"
       / == stylesheet_link_tag 'ie'
-    script src="/assets/javascripts/all.js"
+    script src="assets/javascripts/all.js"
 
   body
     == yield
