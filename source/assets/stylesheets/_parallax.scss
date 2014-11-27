@@ -168,6 +168,11 @@
     @include rem(padding, 50px);
   }
 
+  &.black {
+    background-color: $backgroundColor;
+    color: $bodyTextColor;
+  }
+
   .wrap {
     @include rem(max-width, 600px);
     margin: 0 auto;
