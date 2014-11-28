@@ -111,6 +111,16 @@
   }
 }
 
+svg {
+  max-width: 100%;
+  width: 100%;
+
+  &.message {
+    //position: absolute;
+    top: 25%;
+  }
+}
+
 .note {
   position: absolute;
   text-align: center;
