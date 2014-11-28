@@ -115,6 +115,13 @@ svg {
   max-width: 100%;
   width: 100%;
 
+  &.background {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+  }
+
   &.message {
     //position: absolute;
     top: 25%;
@@ -199,5 +206,5 @@ svg {
 }
 
 .skrollable {
-  position: fixed;
+  position: fixed !important;
 }
