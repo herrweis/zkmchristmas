@@ -118,13 +118,48 @@ svg {
   &.background {
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: 2000px;
     height: auto;
   }
 
   &.message {
     //position: absolute;
     top: 25%;
+  }
+}
+
+svg {
+  &.background {
+    position: fixed;
+  }
+
+  &.message {
+    &.n1 {
+      position: absolute;
+      top: 100%;
+    }
+    &.n2 {
+      position: absolute;
+      top: 200%;
+    }
+  }
+}
+
+.skrollr {
+  svg {
+    max-width: 100%;
+    width: 100%;
+
+    &.background {
+      bottom: 0;
+      width: 2000px;
+      height: auto;
+    }
+
+    &.message {
+      //position: absolute;
+      top: 25%;
+    }
   }
 }
 
@@ -172,14 +207,9 @@ svg {
 .content {
   @include rem(padding, 50px 20px);
   background-color: $contentBackgroundColor;
-  bottom: 0;
   color: $contentTextColor;
-  left: 0;
-  overflow: scroll;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 1000;
+  position: absolute;
+  top: 400%;
 
   @include breakpoint($breakpoint2) {
     @include rem(padding, 50px);
@@ -188,7 +218,9 @@ svg {
   &.black {
     background-color: $backgroundColor;
     color: $bodyTextColor;
-    overflow: hidden;
+    height: 100%;
+    top: 300%;
+    width: 100%;
   }
 
   .wrap {
@@ -202,6 +234,24 @@ svg {
     right: 0;
     text-align: center;
     top: 35%;
+  }
+}
+.skrollr {
+  .content {
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+
+    .wrap-center {
+      left: 0;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      top: 35%;
+    }
   }
 }
 
