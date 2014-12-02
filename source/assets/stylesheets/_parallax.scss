@@ -9,156 +9,59 @@
     opacity: .3;
   }
 }
-.layer1 {
-  height: 100%;
-}
-.layer2 {
-  height: 200%; 
-}
-.layer3 {
-  height: 300%;
-}
 
-.snow {
-  background-position: center;
-  background-repeat: repeat;
-  background-size: 1200px auto;
-  position: absolute;
-  width: 100%;
-
-
-  @for $i from 1 through 4 {
-    &.big#{$i} {
-      background-image: url('../images/03_snow_big#{$i}.svg');
-    }
-  }
-
-  @for $i from 1 through 4 {
-    &.mid#{$i} {
-      background-image: url('../images/02_snow_mid#{$i}.svg');
-    }
-  }
-
-  @for $i from 1 through 4 {
-    &.small#{$i} {
-      background-image: url('../images/01_snow_small#{$i}.svg');
-    }
-  }
-
-  // &.section1 {
-  //   @for $i from 1 through 4 {
-  //     &.big#{$i} {
-  //       background-image: url('../images/01snow_big#{$i}.svg');
-  //     }
-  //   }
-
-  //   @for $i from 1 through 4 {
-  //     &.mid#{$i} {
-  //       background-image: url('../images/01snow_mid#{$i}.svg');
-  //     }
-  //   }
-
-  //   @for $i from 1 through 4 {
-  //     &.small#{$i} {
-  //       background-image: url('../images/01snow_small#{$i}.svg');
-  //     }
-  //   }
-  // }
-
-  // &.section2 {
-  //   @for $i from 1 through 4 {
-  //     &.big#{$i} {
-  //       background-image: url('../images/02snow_big#{$i}.svg');
-  //     }
-  //   }
-
-  //   @for $i from 1 through 4 {
-  //     &.mid#{$i} {
-  //       background-image: url('../images/02snow_mid#{$i}.svg');
-  //     }
-  //   }
-
-  //   @for $i from 1 through 4 {
-  //     &.small#{$i} {
-  //       background-image: url('../images/02snow_small#{$i}.svg');
-  //     }
-  //   }
-  // }
-}
-
-.typo {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-
-  &.section1 {
-    @for $i from 1 through 13 {
-      &.f#{$i} {
-        background-image: url('../images/f#{$i}.svg');
-      }
-    }
-  }
-
-  &.section2 {
-    @for $i from 1 through 14 {
-      &.n#{$i} {
-        background-image: url('../images/n#{$i}.svg');
-      }
-    }
-  }
-}
-
-svg {
+.fallback-image {
   max-width: 100%;
   width: 100%;
-
-  &.background {
-    position: absolute;
-    bottom: 0;
-    width: 2000px;
-    height: auto;
-  }
-
-  &.message {
-    //position: absolute;
-    top: 25%;
-  }
 }
-
 svg {
-  &.background {
-    position: fixed;
-  }
-
-  &.message {
-    &.n1 {
-      position: absolute;
-      top: 100%;
-    }
-    &.n2 {
-      position: absolute;
-      top: 200%;
-    }
-  }
+  display: none;
 }
 
-.skrollr {
+.svg {
+  .fallback-image {
+    display: none;
+  }
+
   svg {
+    display: block;
     max-width: 100%;
     width: 100%;
 
     &.background {
+      position: fixed;
       bottom: 0;
       width: 2000px;
       height: auto;
     }
 
     &.message {
-      //position: absolute;
-      top: 25%;
+      &.n1 {
+        position: absolute;
+        top: 100%;
+      }
+      &.n2 {
+        position: absolute;
+        top: 200%;
+      }
+    }
+  }
+
+  &.skrollr {
+    svg {
+      max-width: 100%;
+      width: 100%;
+
+      &.background {
+        bottom: 0;
+        width: 2000px;
+        height: auto;
+      }
+
+      &.message {
+        //position: absolute;
+        top: 25%;
+      }
     }
   }
 }
@@ -208,8 +111,8 @@ svg {
   @include rem(padding, 50px 20px);
   background-color: $contentBackgroundColor;
   color: $contentTextColor;
-  position: absolute;
-  top: 400%;
+  position: relative;
+  height: 100%;
 
   @include breakpoint($breakpoint2) {
     @include rem(padding, 50px);
@@ -219,8 +122,6 @@ svg {
     background-color: $backgroundColor;
     color: $bodyTextColor;
     height: 100%;
-    top: 300%;
-    width: 100%;
   }
 
   .wrap {
@@ -236,7 +137,21 @@ svg {
     top: 35%;
   }
 }
-.skrollr {
+
+.svg {
+  .content {
+    position: absolute;
+    top: 400%;
+    width: 100%;
+
+    &.black {
+      top: 300%;
+      width: 100%;
+    }
+  }
+}
+
+.skrollr.svg {
   .content {
     bottom: 0;
     left: 0;

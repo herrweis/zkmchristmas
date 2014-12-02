@@ -18,6 +18,7 @@ set :build_dir, 'build'
 activate :directory_indexes
 activate :livereload
 
+
 # Build-specific configuration
 configure :build do
   activate :minify_css
