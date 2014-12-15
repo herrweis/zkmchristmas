@@ -112,7 +112,7 @@ svg {
   background-color: $contentBackgroundColor;
   color: $contentTextColor;
   position: relative;
-  height: 100%;
+  min-height: 100%;
 
   @include breakpoint($breakpoint2) {
     @include rem(padding, 50px);
@@ -121,7 +121,7 @@ svg {
   &.black {
     background-color: $backgroundColor;
     color: $bodyTextColor;
-    height: 100%;
+    min-height: 100%;
   }
 
   .wrap {
@@ -130,42 +130,82 @@ svg {
   }
 
   .wrap-center {
-    left: 0;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    top: 35%;
+    display: table;
+    width: 100%;
+  }
+
+  .wrap-inner {
+    display: table-cell;
+    vertical-align: middle;
   }
 }
 
 .svg {
   .content {
-    position: absolute;
-    top: 400%;
+    position: relative;
+    top: 300%;
     width: 100%;
 
     &.black {
       top: 300%;
       width: 100%;
     }
+
+    &.white {
+      display: none;
+    }
   }
 }
 
 .skrollr.svg {
   .content {
-    bottom: 0;
-    left: 0;
-    overflow: auto;
-    right: 0;
     top: 0;
-    z-index: 1000;
+    position: absolute;
+    z-index: 1001;
+    
+    &.main {
+      top: 850%;
+    }
+
+    &.black,
+    &.white {
+      bottom: 0;
+      left: 0;
+      overflow: auto;
+      padding: 0;
+      right: 0;
+      top: 0;
+      z-index: 1000;
+    }
 
     .wrap-center {
+      bottom: 0;
+      display: table;
+      height: 100%;
       left: 0;
       position: absolute;
       right: 0;
       text-align: center;
-      top: 35%;
+      top: 0;
+      width: 100%;
+
+      .wrap-inner {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      p {
+        margin: 0 auto;
+        max-width: 900px;
+        padding: 0 5% 0 5%;
+      }
+
+      @media screen and (min-width: 700px)  and (min-height: 600px) {
+        p {
+          font-size: 20px;
+          padding: 0 10% 0 10%;
+        }
+      }
     }
   }
 }

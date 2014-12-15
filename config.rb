@@ -2,7 +2,7 @@ require 'compass'
 # Change Compass configuration
 compass_config do |config|
   config.output_style = :expanded
-  config.sass_options = {:debug_info => true}
+  config.sass_options = {:debug_info => false}
 end
  
 require 'slim'
